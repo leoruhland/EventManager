@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+//import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import firebase from "firebase";
 
@@ -39,8 +39,11 @@ export class AuthProvider {
         /**
          * User logout function
          */
-        logoutUser(): firebase.Promise<void>{
+       logoutUser(): firebase.Promise<void> {
+          firebase.database().ref('/userProfile')
+            .child(firebase.auth().currentUser.uid).off();
+
           return firebase.auth().signOut();
-        }
+}
 
 }

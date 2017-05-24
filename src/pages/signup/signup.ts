@@ -23,7 +23,7 @@ import { HomePage } from '../home/home';
 })
 export class SignupPage {
   public signupForm: FormGroup;
-  loading: Loading;
+  public loading: Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public authProvider: AuthProvider,
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
