@@ -3,11 +3,32 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from '../providers/profile/profile';
+
+import firebase from 'firebase';
+
+class CameraMock extends Camera {
+  getPicture(options){
+    return new Promise( (resolve, reject) => {
+      resolve(`TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=`);
+    });
+  }
+}
+
+export const config = {
+      apiKey: "AIzaSyAyAcBMgmz1L0RLYTc6nsMzFiLH6jMT3lw",
+      authDomain: "eventmanager-894be.firebaseapp.com",
+      databaseURL: "https://eventmanager-894be.firebaseio.com",
+      projectId: "eventmanager-894be",
+      storageBucket: "eventmanager-894be.appspot.com",
+      messagingSenderId: "268474076595"
+    };
+   firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -28,6 +49,7 @@ import { ProfileProvider } from '../providers/profile/profile';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    Camera,
     ProfileProvider
   ]
 })
