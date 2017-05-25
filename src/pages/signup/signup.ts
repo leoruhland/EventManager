@@ -44,9 +44,7 @@ export class SignupPage {
       this.authProvider.signupUser(this.signupForm.value.email, 
                     this.signupForm.value.password)
                     .then( () => {
-                      this.loading.dismiss().then( () => {
                         this.navCtrl.setRoot(HomePage);
-                    });
     }, (error) => {
       this.loading.dismiss().then( () => {
         let alert = this.alertCtrl.create({

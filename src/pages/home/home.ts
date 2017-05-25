@@ -20,4 +20,18 @@ export class HomePage {
     this.navCtrl.push('profile');
   }
 
+  goToCreate() {
+    /**
+     * Takes user to create event page
+     */
+    this.navCtrl.push('event-create');
+  }
+
+  goToList() {
+    /**
+     * Takes user to event List page
+     */
+    this.navCtrl.push('event-list');
+  }
+
 }
