@@ -10,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from '../providers/profile/profile';
+import { EventProvider } from '../providers/event/event';
 
 import firebase from 'firebase';
 
@@ -22,12 +23,12 @@ class CameraMock extends Camera {
 }
 
 export const config = {
-      apiKey: "AIzaSyAyAcBMgmz1L0RLYTc6nsMzFiLH6jMT3lw",
-      authDomain: "eventmanager-894be.firebaseapp.com",
-      databaseURL: "https://eventmanager-894be.firebaseio.com",
-      projectId: "eventmanager-894be",
-      storageBucket: "eventmanager-894be.appspot.com",
-      messagingSenderId: "268474076595"
+      apiKey: "Add_your_keys",
+      authDomain: "",
+      databaseURL: "",
+      projectId: "",
+      storageBucket: "",
+      messagingSenderId: ""
     };
    firebase.initializeApp(config);
 
@@ -51,6 +52,7 @@ export const config = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    EventProvider,
     Camera,
     ProfileProvider
   ]

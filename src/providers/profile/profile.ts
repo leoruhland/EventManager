@@ -20,6 +20,7 @@ export class ProfileProvider {
    * Display user profile
    */
   getUserProfile(): Promise<any> {
+    
     return new Promise( (resolve, reject) => {
       firebase.database().ref('/userProfile')
         .child(firebase.auth().currentUser.uid)
