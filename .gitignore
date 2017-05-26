@@ -24,11 +24,11 @@ temp/
 hooks/
 platforms/
 plugins/
+src/
 plugins/android.json
 plugins/ios.json
 www/
 $RECYCLE.BIN/
-src/app/app.module.ts
 
 .DS_Store
 Thumbs.db
